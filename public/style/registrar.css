@@ -1,0 +1,68 @@
+h1{
+ text-align: center;
+ color: rgb(0, 189, 214);
+}
+
+.content{
+          display: flex;
+          flex-direction: column;
+          width: 60%;
+          margin-left: auto;
+          margin-right: auto;
+          height: 280px;
+          padding: 20px;
+          border: 1px solid black;
+          border-radius: 15px;
+}
+
+
+.content button{
+          cursor: pointer;
+          width: 100%;
+          margin-top: 8px;
+     outline: none;
+          padding: 10px;
+          text-transform: uppercase;
+          background-color: rgb(0, 189, 214);
+          color: white;
+          font-weight: 700;
+          border: none;
+          border-radius: 20px;
+          transition: all .5s ease;
+}
+
+.content button:hover{
+          box-shadow: 2px 2px 15px 3px rgb(74, 232, 253);;
+}
+
+.campo{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 20px;
+}
+
+
+
+.campo input{
+         width: 100%;
+          padding: 5px;
+          outline: none;
+          border: none;
+          border: 1px solid black;
+          border-radius: 15px;
+}
+
+
+
+
+@media(max-width: 768px){
+          .content{
+                    width: 85%;
+                    height: 300px;
+          }
+          .content button{
+                    width: 100%;
+          }
+}
