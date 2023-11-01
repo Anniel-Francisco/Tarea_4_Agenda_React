@@ -1,7 +1,6 @@
 import "../../public/style/lista.css";
 
 export function Lista() {
-  let contact = false;
   async function getContactos() {
     fetch("http://www.raydelto.org/agenda.php")
       .then((response) => response.json())
@@ -14,22 +13,27 @@ export function Lista() {
         });
       });
   }
-  if (!contact) {
-    getContactos();
-    contact = true;
-  }
-  return (
-    <div className="content-list">
-      <table>
-        <caption style={{ fontSize: "20px" }}>Lista de Contactos</caption>
-        <thead>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Telefono</th>
-        </thead>
 
-        <tbody id="tbody"></tbody>
-      </table>
+  getContactos();
+
+  return (
+    <div>
+      <div>
+        <h2 style={{ fontSize: "20px", textAlign: "center" }}>
+          Lista de Contactos
+        </h2>
+      </div>
+      <div className="content-list">
+        <table>
+          <thead>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+          </thead>
+
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
     </div>
   );
 }

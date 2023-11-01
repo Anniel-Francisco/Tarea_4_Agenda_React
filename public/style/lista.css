@@ -1,5 +1,5 @@
 .content-list{
-          width: 60%;
+          width: 100%;
           margin-left: auto;
           margin-right: auto;
           height: 250px;
@@ -9,7 +9,7 @@
 table {
           margin-left: auto;
           margin-right: auto;
-          margin-top: 20px;
+     
           width: 100%;
           border-collapse: collapse;
         }
