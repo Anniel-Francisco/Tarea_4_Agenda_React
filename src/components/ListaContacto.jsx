@@ -1,9 +1,9 @@
 import "../../public/style/lista.css";
+import ContactosAPI from "../api/ContactosAPI.js";
 
 export function Lista() {
-  async function getContactos() {
-    fetch("http://www.raydelto.org/agenda.php")
-      .then((response) => response.json())
+  async function getContacto() {
+    await ContactosAPI.getContactos()
       .then((data) => {
         const tbody = document.getElementById("tbody");
         data.forEach((item) => {
@@ -11,10 +11,11 @@ export function Lista() {
           tr.innerHTML = `<td>${item.nombre}</td> <td>${item.apellido}</td> <td>${item.telefono}</td>`;
           tbody.appendChild(tr);
         });
-      });
+      })
+      .catch((error) => console.log(error));
   }
 
-  getContactos();
+  getContacto();
 
   return (
     <div>

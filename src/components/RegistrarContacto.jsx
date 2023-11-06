@@ -1,5 +1,6 @@
 import "../../public/style/registrar.css";
 import { HiUser } from "react-icons/hi2";
+import ContactosAPI from "../api/ContactosAPI.js";
 
 export function Registrar() {
   let contacto = { nombre: "", apellido: "", telefono: "" };
@@ -48,20 +49,15 @@ export function Registrar() {
         </div>
         <button
           type="submit"
-          onClick={(e) => {
+          onClick={async (e) => {
             e.preventDefault();
             contacto.nombre && contacto.apellido && contacto.telefono
-              ? fetch("http://www.raydelto.org/agenda.php", {
-                  method: "POST",
-                  body: JSON.stringify(contacto),
+              ? await ContactosAPI.postContactos(contacto).then(() => {
+                  document.getElementById("nombre").value = "";
+                  document.getElementById("apellido").value = "";
+                  document.getElementById("telefono").value = "";
+                  alert("Datos registrados");
                 })
-                  .then((response) => response.json())
-                  .then(() => {
-                    document.getElementById("nombre").value = "";
-                    document.getElementById("apellido").value = "";
-                    document.getElementById("telefono").value = "";
-                    alert("Datos registrados");
-                  })
               : alert("Debe llenar todos los campos");
           }}
         >
